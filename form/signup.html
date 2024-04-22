@@ -15,9 +15,12 @@
         <div class="box"></div>
     </div>
 
-    <form method="post" id="myForm">
+
+    <form method="post" id="myForm" >
         <div class="input-container">
             <h1>Sign Up</h1><br>
+            <div id="Ereur"></div>
+            <br>
             <label>FirstName</label>
             <input type="text" placeholder="FirstName..." name="fname" value="" required><br>
             <span><?php echo $FnameErr?></span>
@@ -40,7 +43,7 @@
             </div>
             <br>
             <div class="Sign">
-                <button type="submit" name="signup" id="signup" onclick="submitForm()">Sign Up</button>
+                <button type="submit" name="signup" id="signup" >Sign Up</button>
                 <a href="login.html" class="LogIn">LogIn →</a><br><br>
             </div>
             <span id="connexion"><?php echo $connection?></span>
