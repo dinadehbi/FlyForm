@@ -1,0 +1,246 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    color: rgb(255, 255, 255);
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    
+
+}
+
+@font-face{
+    font-family: 'font1';
+    src : url('MPLUS1p-Bold.ttf')
+}
+
+@font-face{
+    font-family: 'font2';
+    src : url('MPLUS1p-Light.ttf');
+}
+
+@font-face{
+    font-family: 'font3';
+    src : url('MPLUS1p-ExtraBold.ttf');
+    
+}
+@font-face{
+    font-family: 'font4';
+    src : url('MPLUS1p-Medium.ttf');
+}
+h1{
+    font-family: font3;
+        color: rgb(255, 255, 255);
+    
+
+}
+.Background{
+    height: 100vh;
+    width: 60%;
+    background-image: url(https://t3.ftcdn.net/jpg/04/15/87/76/360_F_415877698_c1VY6BMnUbNxh7Or80VDZAWng4UoGfWi.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;   
+    display: flex;
+    align-items: center; 
+    justify-content: start;
+    }
+.container{
+    display: flex;
+}
+
+form{
+    background-image: url(https://us.123rf.com/450wm/alfredosaz/alfredosaz2305/alfredosaz230500004/205510742-embossed-wallpaper-neutral-gray-color-for-background.jpg?ver=6);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 40%;
+}
+
+.input-container{
+    height: 100vh;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    margin-left: 50px;
+}
+
+label{
+    font-family: font4;
+}
+input{
+    height: 30px;
+    width: 50%;
+    border: none;
+    font-family: font3;
+}
+#signup{
+  height: 40px;
+  width: 70%;
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  border: none;
+  font-family: font3;
+}#LogIn{
+  height: 40px;
+  width: 70%;
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  border: none;
+  font-family: font3;
+}
+.checkbox-container{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+    font-size: 15px;
+}
+.checkbox{
+    height: 20px;
+    width: 20px;
+}
+.link:hover{
+  color: rgb(12, 12, 191);
+}
+.agree{
+    padding-left: 10px;
+}
+.checkboxErr{
+    margin-left: 10px;
+    font-size: 17px;
+
+}
+span{
+    font-family: font4;
+    font-style: italic;
+   color:rgb(112, 112, 112);
+
+}
+input{
+background-color:rgba(255,255,255,0);
+border-bottom: 1px white solid;
+}
+input:focus{
+outline: 0;
+}
+input::placeholder{
+    color:white;
+    opacity:0.5;
+}
+.Sign{
+    height: 50px;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.LogIn{
+background-color: none;
+font-family: font1;
+}
+.LogIn:hover{
+    color: rgb(12, 12, 191);
+}
+.con{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.h1{
+    color: rgb(255, 255, 255);
+    font-family: font3;
+    font-size: 50px;
+    text-align: center;
+    
+}
+p{
+font-family: font2;
+font-size: 10px;
+text-align: center;
+
+}
+
+
+  
+
+.box {
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, transparent, transparent 40%, yellow),
+      linear-gradient(#262626, #141414);
+    animation: rotate 1.5s linear infinite; 
+    margin-left: 100px;
+
+  }
+  
+  .box:before,
+  .box:after {
+    content: " ";
+    position: absolute;
+    inset: 8px;
+    background: linear-gradient(#161616, #262626);
+    border-radius: inherit;
+  }
+  
+  .box:before {
+    background: linear-gradient(45deg, transparent, transparent 40%, yellow);
+    filter: blur(32px);
+  }
+  
+  @keyframes rotate {
+    100% {
+      transform: rotate(360deg);
+      filter: hue-rotate(360deg);
+    }
+  }
+  .welcome{
+    z-index: 1;
+    font-size: 50px;
+    position: relative;
+    left: 470px;
+  }
+  #connexion{
+  color: rgb(0, 218, 0);
+    
+    text-align: center;
+    font-family: font5;
+    font-size: 20px;
+  }
+  #span1{
+    color: white;
+  }
+  #div{
+    height: 60px;
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .google{
+    height: 40px;
+    width: 49%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 5px;
+    border: none;
+  }
+  .para{
+    color: black;
+    text-align: center;
+    font-size: 15px;
+    font-family: font3;
+    padding-right: 25px;
+
+
+  }
+  #secondForm{
+    display: none;
+  }

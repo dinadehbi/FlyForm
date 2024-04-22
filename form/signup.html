@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="form.css">
+    <title>SignUp</title>
+</head>
+<body>
+
+
+<div class="container">
+    <div class="Background">
+        <h1 class="welcome">Welcome..</h1>
+        <div class="box"></div>
+    </div>
+
+    <form method="post" id="myForm">
+        <div class="input-container">
+            <h1>Sign Up</h1><br>
+            <label>FirstName</label>
+            <input type="text" placeholder="FirstName..." name="fname" value="" required><br>
+            <span><?php echo $FnameErr?></span>
+            <label>LastName</label>
+            <input type="text" placeholder="LastName..." name="lname" required><br>
+            <span><?php echo $LnameErr?></span>
+            <label>Email</label>
+            <input type="email" placeholder="name@gmail.com" name="email" required><br>
+            <span><?php echo $EmailErr?></span>
+            <label>Password</label>
+            <input type="password" placeholder="****" name="password" required><br>
+            <span><?php echo $PasswordErr?></span>
+            <label>Repeat Password</label>
+            <input type="password" placeholder="Repeat your Password..." name="password2" required><br>
+            <span><?php echo $Password2Err?></span>
+            <div class="checkbox-container">
+                <input type="checkbox" name="checkbox" class="checkbox" required>
+                <label class="agree">I agree to the <a href="#" class="link">Terms of user </a></label>
+                <span class="checkboxErr"><?php echo $checkboxErr?></span><br>
+            </div>
+            <br>
+            <div class="Sign">
+                <button type="submit" name="signup" id="signup" onclick="submitForm()">Sign Up</button>
+                <a href="login.html" class="LogIn">LogIn →</a><br><br>
+            </div>
+            <span id="connexion"><?php echo $connection?></span>
+        </div>
+    </form>
+
+    <form method="post" id="secondForm">
+        <div class="input-container">
+            <h1>Login</h1><br>
+            <label>Email</label>
+            <input type="email" placeholder="name@gmail.com" name="newEmail"><br>
+            <span><?php echo $newemail2?></span>
+            <label>Password</label>
+            <input type="password" placeholder="****" name="NewPassword"><br>
+            <span><?php echo $newpassword2?></span>
+
+            <br>
+            <div class="Sign">
+                <button type="submit" class="SignUp" name="login" id="LogIn">Login</button>
+                <a href="signup.html" class="LogIn">Sign Up →</a><br><br>
+            </div><br>
+            <span id="span1">_____________ Or LogIn with ______________ </span><br>
+            <div id="div">
+                <button type="submit" name="Google" class="google">               
+                <img src="google.png" height="30px" width="30px">
+                <p class="para">Google</p>
+                </button>
+                <button type="submit" name="facebook" class="google">
+                <img src="facebook.png" height="30px" width="30px">
+                <p class="para">Facebook</p>
+
+                </button>
+            </div><br>
+            <span id="connexion"><?php echo $LogInMess?></span>
+          
+        </div>
+    </form>
+</div>
+    <script src="signup.js"></script>
+</body>
+</html>
