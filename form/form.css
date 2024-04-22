@@ -176,7 +176,6 @@ text-align: center;
     background: linear-gradient(45deg, transparent, transparent 40%, yellow),
       linear-gradient(#262626, #141414);
     animation: rotate 1.5s linear infinite; 
-    margin-left: 100px;
 
   }
   
@@ -204,7 +203,7 @@ text-align: center;
     z-index: 1;
     font-size: 50px;
     position: relative;
-    left: 470px;
+    left: 370px;
   }
   #connexion{
   color: rgb(0, 218, 0);
@@ -243,4 +242,10 @@ text-align: center;
   }
   #secondForm{
     display: none;
+  }
+  #Ereur{
+    background-color: #d64040e2;
+    height: 35px;
+    width: 60%;
+    border-radius: 5px;
   }
