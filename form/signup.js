@@ -2,40 +2,37 @@ const myForm = document.getElementById("myForm");
 const secondForm = document.getElementById("secondForm");
 const signupButton = document.getElementById("signup");
 
-signupButton.addEventListener("click", submitForm);
 
-function submitForm(event) {
-    event.preventDefault();
+myForm.addEventListener("submit", e => {
+    e.preventDefault();
+})
 
-    const formData = new FormData(myForm);
-    console.log(formData);
+signupButton.addEventListener("click", () => {
+    
+        const formData = new FormData(myForm);
+        console.log(formData);
 
-    fetch('signup.php', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.text())
-    .then(data => {
-        console.log(data);
-        // Assuming the response from signup.php indicates success
-       
-    })
-    .catch(error => {
-        console.error(error);
-        console.log('Something went wrong');
-    });
+        fetch('signup.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
 
-}
-if (submitForm() == true) {
-    // Hide current form and show second form
-    /*
-    myForm.style.display = "none";
-    secondForm.style.display = "block";
-    */
-   console.log("data submited successfully");
-} else {
-    console.log("The form was not submitted successfully.");
-}
+            // Check if submission was successful
+            if (data === "success") {
+               console.log("the forn is sublitted");
+                myForm.style.display = "none";
+                secondForm.style.display = "block";
+            } else {
+                console.log(data);
+            }
+        })
+        .catch(error => {
+            console.error(error);
+            console.log('Something went wrong');
+        });
+    
 
-// Remove this line as it's redundant
-// submitForm();
+    
+});
