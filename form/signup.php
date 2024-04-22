@@ -47,7 +47,7 @@ if(!empty($_POST['fname']) && !empty($_POST['lname']) && !empty($_POST['email'])
                 $stm->bindParam(":password2", $repeatPassword);
                 $stm->execute();
 
-                echo "truee";
+                echo "success";
             }
 
         } catch (PDOException $e) {
@@ -84,7 +84,6 @@ if(!empty($_POST['fname']) && !empty($_POST['lname']) && !empty($_POST['email'])
     }
 */
 ?>
-
 
 
 
