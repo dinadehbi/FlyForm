@@ -11,8 +11,10 @@
 
 <div class="container">
     <div class="Background">
-        <h1 class="welcome">Welcome..</h1>
-        <div class="box"></div>
+        <div class="box">
+            <h1 class="welcome">Welcome..</h1>
+
+        </div>
     </div>
 
 
@@ -44,7 +46,7 @@
             <br>
             <div class="Sign">
                 <button type="submit" name="signup" id="signup" >Sign Up</button>
-                <a href="login.html" class="LogIn">LogIn →</a><br><br>
+                <button id="lienLogin">LogIn →</button><br><br>
             </div>
             <span id="connexion"><?php echo $connection?></span>
         </div>
@@ -55,15 +57,13 @@
             <h1>Login</h1><br>
             <label>Email</label>
             <input type="email" placeholder="name@gmail.com" name="newEmail"><br>
-            <span><?php echo $newemail2?></span>
             <label>Password</label>
             <input type="password" placeholder="****" name="NewPassword"><br>
-            <span><?php echo $newpassword2?></span>
 
             <br>
             <div class="Sign">
                 <button type="submit" class="SignUp" name="login" id="LogIn">Login</button>
-                <a href="signup.html" class="LogIn">Sign Up →</a><br><br>
+                <a href="#" class="LogIn">Sign Up →</a><br><br>
             </div><br>
             <span id="span1">_____________ Or LogIn with ______________ </span><br>
             <div id="div">
