@@ -1,85 +1,64 @@
-const myForm = document.getElementById('myForm');
-const myForm2 = document.getElementById('secondForm');
-const Ereur = document.getElementById('Ereur');
-const lienLogIn = document.getElementById("lienLogin");
-const logInButton = document.getElementById("LogIn");
-const signUpButton = document.getElementById("signup");
+<?php
+function validate($data){
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
 
-lienLogIn.addEventListener("click", function(e){
-    e.preventDefault(); 
-    myForm.style.display= "none";
-    myForm2.style.display = "block";
-    
-})
-signUpButton.addEventListener("click",function(){
+$servername = "localhost";
+$dbusername = "root";
+$dbpassword = "";
+$dbname = "newform";
+$tablename = "signup";
 
-myForm.addEventListener('submit', function(event) {
-    event.preventDefault();
-    var formData = new FormData(this);
+    if(!empty($_POST['fname']) && !empty($_POST['lname']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['password2'])){
+    $firstName = validate($_POST['fname']);
+    $lastName = validate($_POST['lname']);
+    $email = validate($_POST['email']);
+    $password = validate($_POST['password']);
+    $repeatPassword = validate($_POST['password2']);
 
-    fetch('signup.php', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
+    if (strlen($password) < 8) {
+        echo "* Password must be at least 8 characters long";
+    } else if ($password != $repeatPassword) {
+        echo "* Passwords do not match";
+    } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "* Invalid email format";
+    } else {
+        try {
+            $db = new PDO("mysql:host=$servername;dbname=$dbname", $dbusername, $dbpassword);
+            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            // Check if the email already exists
+            $stm = $db->prepare("SELECT * FROM $tablename WHERE `Email`=:email");
+            $stm->bindParam(":email", $email);
+            $stm->execute();
+
+            if ($stm->rowCount() > 0) {
+                echo "The Email already exists";
+            } else {
+                // Hash the password before storing it
+                $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+                // Insert the new user
+                $stm = $db->prepare("INSERT INTO $tablename (FirstName,LastName,Email,Password) VALUES(:fname, :lname, :email, :password)");
+                $stm->bindParam(":fname", $firstName);
+                $stm->bindParam(":lname", $lastName);
+                $stm->bindParam(":email", $email);
+                $stm->bindParam(":password", $hashedPassword);
+                $stm->execute();
+
+                echo "Registration successful";                
+            }
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
         }
-        return response.text();
-    })
-    .then(data => {
-        if (data === 'Registration successful') {
-            myForm.style.display="none";
-            myForm2.style.display="block";
-            console.log(data);
-
-        }else {
-            Ereur.style.display="block";
-            Ereur.innerHTML = data;
-            console.log(data);
-            
-            }
-            
-            
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
-});
-})
+    }
+}
 
 
-logInButton.addEventListener("click", function(){
-    myForm2.addEventListener('submit', function(e) {
-        e.preventDefault();
-        var formData2 = new FormData(this);
 
-        fetch('login.php', {
-            method: 'POST',
-            body: formData2
-        })
-        .then(response2 => {
-            if (!response2.ok) {
-                alert('Network response was not ok');
-            }
-            return response2.text();
-        })
-        .then(data=> {
-        
-            if (data === 'true') {
-                myForm2.style.display="none";
-                console.log(data);
 
-            }else {
-                Ereur.style.display="block";
-                Ereur.innerHTML = data;
-                console.log(data);
-                
-                }
-            
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-    });
-})
+
+?>
